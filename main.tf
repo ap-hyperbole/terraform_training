@@ -47,7 +47,7 @@ resource "aws_instance" "training_instance" {
   instance_type          = "t2.micro"
   subnet_id              = "subnet-9e15f8f6"
   vpc_security_group_ids = ["sg-dca200b4"]
-  count                  = "2"
+  count                  = "eqfeqfeqfqefqefqefqefqefqe"
 
   tags {
     Identity    = "totaljobs-c51ce410c124a10e0db5e4b97fc2af39"
