@@ -8,6 +8,9 @@ cat terraform.out | ./ansi2html.sh --bg=dark > terraform_plan_report/eldorado.ht
 cat terraform.out | ./ansi2html.sh --bg=dark > terraform_plan_report/dev.html
 cat terraform.out | ./ansi2html.sh --bg=dark > terraform_plan_report/liberty.html
 # Strip CSS styling for PR update message
-echo "## Summary of updates for Live StepWeb B Live C environment" > terraform_plan_report/pr_update.md
-grep "Plan:" terraform_plan_report/liberty.html >> terraform_plan_report/pr_update.md
-echo "Full Terraform Plan can be viewed here : ${JOB_URL}/Terraform_Plans " >> terraform_plan_report/pr_update.md
+echo "#### Live StepWeb B Live C changes" > terraform_plan_report/pr_update.md
+echo -n "**" >> terraform_plan_report/pr_update.md
+grep "Plan:" terraform_plan_report/liberty.html | tr -d '\n' >> terraform_plan_report/pr_update.md
+echo "**" >> terraform_plan_report/pr_update.md
+
+echo "Full Terraform Plan can be viewed [here](${JOB_URL}/Terraform_Plans)" >> terraform_plan_report/pr_update.md
